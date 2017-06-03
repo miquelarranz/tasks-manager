@@ -1,0 +1,21 @@
+<ion-split-pane>
+  <ion-menu [content]="content">
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title><img class="app-logo" src="../assets/common/logo.png"></ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon name="map" margin-right></ion-icon> {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>
