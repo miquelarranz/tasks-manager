@@ -5,7 +5,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { BarcelonaServicesPage } from '../pages/barcelona-services/barcelona-services';
+import { CurrentWeekPage } from '../pages/current-week/current-week';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,9 +13,8 @@ import { BarcelonaServicesPage } from '../pages/barcelona-services/barcelona-ser
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage: any = BarcelonaServicesPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage: any = CurrentWeekPage;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(
     public platform: Platform,
@@ -25,25 +24,20 @@ export class MyApp {
   ) {
     this.initializeApp();
 
-    // set our app's pages
     this.pages = [
-      { title: 'Barcelona Services Map', component: BarcelonaServicesPage }
+      { title: 'This Week', component: CurrentWeekPage, icon: 'calendar' }
     ];
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   openPage(page) {
-    // close the menu when clicking a link from the menu
     this.menu.close();
-    // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
 }

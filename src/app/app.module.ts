@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { BarcelonaServicesPage } from '../pages/barcelona-services/barcelona-services';
+import { CurrentWeekPage } from '../pages/current-week/current-week';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -9,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    BarcelonaServicesPage
+    CurrentWeekPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    BarcelonaServicesPage
+    CurrentWeekPage
   ],
   providers: [
     StatusBar,
