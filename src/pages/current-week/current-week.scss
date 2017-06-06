@@ -2,12 +2,22 @@ current-week {
 
 }
 
-.day-card {
-	min-height: 200px;
-}
-
 .day-card-header {
 	color: color($colors, primary);
 	font-size: 20px;
 	font-weight: bold;
+}
+
+.day-card-content {
+	height: 150px;
+}
+
+.day-card-badge {
+	position: absolute;
+  right: 33px;
+  top: 33px;
+}
+
+.add-task-button {
+	margin-right: 30px;
 }

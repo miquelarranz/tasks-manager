@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+
 import { MyApp } from './app.component';
 import { CurrentWeekPage } from '../pages/current-week/current-week';
 
@@ -12,7 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CurrentWeekPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase, 'tasks-manager')
   ],
   bootstrap: [IonicApp],
   entryComponents: [

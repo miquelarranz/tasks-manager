@@ -1,9 +1,18 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
+    <button ion-button light menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+
     <ion-title>This week</ion-title>
+
+		<ion-buttons end>
+      <button ion-button outline icon-left class="add-task-button" (click)="addTask()">
+			  <ion-icon name="add"></ion-icon>
+			  Add Task
+			</button>
+    </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
 
@@ -15,17 +24,22 @@
 
 			<ion-col *ngFor="let day of days" col-12 [attr.col-lg-3]="(day.width === 'col-lg-3') ? '' : null" [attr.col-lg-4]="(day.width === 'col-lg-4') ? '' : null">
 
-				<ion-card class="day-card">
+				<ion-card >
 					<ion-card-header class="day-card-header">
 				    {{ day.title }}
+
+				    <ion-badge color="secondary" class="day-card-badge">{{ (day.tasks | async)?.length }}</ion-badge>
 				  </ion-card-header>
 
-				  <ion-list>
-				    <ion-item *ngFor="let task of day.tasks">
-				      <ion-label>{{ task.description }}</ion-label>
-				      <ion-checkbox></ion-checkbox>
-				    </ion-item>
-			    </ion-list>
+			  	<ion-scroll scrollX="true" scrollY="true" class="day-card-content">
+					  <ion-list>
+
+						    <ion-item *ngFor="let task of day.tasks | async">
+						      <ion-label>{{ task.description }}</ion-label>
+						      <ion-checkbox></ion-checkbox>
+						    </ion-item>
+				    </ion-list>
+				  </ion-scroll>
 
 				</ion-card>
 
@@ -34,4 +48,7 @@
 		</ion-row>
 	</ion-grid>
 
+	<ion-fab right bottom>
+    <button ion-fab color="primary" fab-content-margin="30px" (click)="addTask()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>	
