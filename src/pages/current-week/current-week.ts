@@ -59,4 +59,42 @@ export class CurrentWeekPage {
 
 	  addTaskAlert.present();
   }
+
+  closeTask(taskId, taskDay) {
+
+  }
+
+  editTask(taskId, taskDescription, taskDay) {
+  	let editTaskAlert = this.alertCtrl.create({
+	    title: 'Edit the description',
+	    inputs: [
+	      {
+	        name: 'description',
+	        value: taskDescription,
+	        placeholder: 'I have to check my email...'
+	      }
+	    ],
+	    buttons: [
+	      {
+	        text: 'Cancel'
+	      },
+	      {
+	        text: 'Edit',
+	        handler: data => {
+	        	for (let day of this.days) {
+							if (day.title === taskDay) day.tasks.update(taskId, {description: data.description});
+						}
+	        }
+	      }
+	    ]
+	  });
+
+	  editTaskAlert.present();
+  }
+
+  deleteTask(taskId, taskDay) {
+  	for (let day of this.days) {
+			if (day.title === taskDay) day.tasks.remove(taskId);
+		}
+  }
 }

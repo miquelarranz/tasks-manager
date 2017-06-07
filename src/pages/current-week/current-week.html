@@ -32,13 +32,28 @@
 				  </ion-card-header>
 
 			  	<ion-scroll scrollX="true" scrollY="true" class="day-card-content">
+					  
 					  <ion-list>
+							<ion-item-sliding *ngFor="let task of day.tasks | async" class="task">
 
-						    <ion-item *ngFor="let task of day.tasks | async">
-						      <ion-label>{{ task.description }}</ion-label>
-						      <ion-checkbox></ion-checkbox>
+						    <ion-item title="{{ task.description }}">
+						      {{ task.description }}
 						    </ion-item>
+
+						    <ion-item-options class="task-options">
+	                <button ion-button icon-only (click)="closeTask(task.$key, task.day)" color="light">
+                    <ion-icon name="checkmark" color="primary"></ion-icon>
+	                </button>
+	                <button ion-button icon-only (click)="editTask(task.$key, task.description, task.day)" color="light">
+                    <ion-icon name="build" color="extra"></ion-icon>
+	                </button>
+	                <button ion-button icon-only (click)="deleteTask(task.$key, task.day)" color="light">
+                    <ion-icon name="close" color="danger"></ion-icon>
+	                </button>
+		            </ion-item-options>
+							</ion-item-sliding>
 				    </ion-list>
+
 				  </ion-scroll>
 
 				</ion-card>
