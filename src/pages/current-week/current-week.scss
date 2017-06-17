@@ -19,6 +19,15 @@ current-week {
   top: 33px;
 }
 
+.day-card-add-button {
+  position: absolute;
+  width: 19px !important;
+  height: 19px !important;
+  right: 70px;
+  top: 29px;
+  font-size: 12px;
+}
+
 .add-task-button {
 	margin-right: 30px;
 }
@@ -33,4 +42,20 @@ current-week {
 
 .task-options {
 	border-bottom: none !important;
+}
+
+.task-actions {
+  .ion-md-checkmark {
+    color: #009688;
+  }
+  .ion-md-build {
+    color: #FF9800;
+  }
+  .action-sheet-destructive ion-icon {
+    color: #F44336;
+  }
+}
+
+.task-done {
+	text-decoration: line-through;
 }
