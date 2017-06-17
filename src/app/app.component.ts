@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { CurrentWeekPage } from '../pages/current-week/current-week';
+import { ArchivePage } from '../pages/archive/archive';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'This Week', component: CurrentWeekPage, icon: 'calendar' }
+      { title: 'This Week', component: CurrentWeekPage, icon: 'calendar' },
+      { title: 'Archive', component: ArchivePage, icon: 'archive' }
     ];
   }
 

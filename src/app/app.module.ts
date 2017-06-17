@@ -5,6 +5,7 @@ import { environment } from '../environments/environment';
 
 import { MyApp } from './app.component';
 import { CurrentWeekPage } from '../pages/current-week/current-week';
+import { ArchivePage } from '../pages/archive/archive';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,7 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    CurrentWeekPage
+    CurrentWeekPage,
+    ArchivePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -21,7 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    CurrentWeekPage
+    CurrentWeekPage,
+    ArchivePage
   ],
   providers: [
     StatusBar,
